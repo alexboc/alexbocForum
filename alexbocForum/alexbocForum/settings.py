@@ -118,3 +118,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# works when deployment, collecting all static files in
+# app static or common static files
+# in STATICFILES_DIRS to STATIC_ROOT
+STATIC_ROOT = os.path.join(BASE_DIR, 'collect_static')
+
+# commont static files that staticfiles will also find
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'comment_static'),
+]
+
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
