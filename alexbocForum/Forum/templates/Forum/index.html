@@ -1,1 +1,10 @@
-I am index! My name is {{ user.username }}
+<h1>{{ question.question_text }}</h1>
+
+<!-- I am index! My name is {{ user.username }} -->
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'Forum:logout' %}" method="post">
+{% csrf_token %}
+<button type="submit" class="btn btn-default">Log out</button>
+</form>
