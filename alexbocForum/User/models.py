@@ -21,9 +21,9 @@ def upload_avatar(instance, filename):
 
 
 @python_2_unicode_compatible
-class User(models.Model):
+class UserProfile(models.Model):
     user = models.OneToOneField(
-        settings.AUTH_USER_MODEL, related_name='user',
+        settings.AUTH_USER_MODEL, related_name='user_profile',
         verbose_name=_('User'), blank=True, null=True, default='')
     nickname = models.CharField(_('Nickname'), max_length=255, blank=False, default='')
     sign = models.CharField(_('Personal Signature'), max_length=255, default='')
