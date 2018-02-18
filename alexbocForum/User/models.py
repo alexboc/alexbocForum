@@ -5,10 +5,12 @@ from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 import hashlib
 
+
 def encry(password):
     p = hashlib.md5()
     p.update(password)
     return p.hexdigest()
+
 
 @python_2_unicode_compatible
 class User(models.Model):
