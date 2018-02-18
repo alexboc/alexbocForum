@@ -125,7 +125,7 @@ STATIC_URL = '/static/'
 
 # works when deployment, collecting all static files in each app and
 # common static files in STATICFILES_DIRS to STATIC_ROOT
-STATIC_ROOT = os.path.join(BASE_DIR, 'collect_static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'collect_static').replace('\\', '/')
 
 # common static files
 STATICFILES_DIRS = [
@@ -134,4 +134,4 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')

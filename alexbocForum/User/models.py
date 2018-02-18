@@ -9,13 +9,6 @@ from django.utils.translation import ugettext_lazy as _
 import hashlib
 import os
 
-<<<<<<< HEAD
-
-def encry(password):
-    p = hashlib.md5()
-    p.update(password)
-    return p.hexdigest()
-=======
 def upload_avatar(instance, filename):
     fn, ext = os.path.splitext(filename)
     fn = instance.user_name
@@ -25,7 +18,6 @@ def upload_avatar(instance, filename):
     if os.path.exists(pre_file_dir):
         os.remove(pre_file_dir)
     return os.path.join('avatars', filename)
->>>>>>> 28f1911f2e61d0c642fe7d995d1e719f8e52f622
 
 
 @python_2_unicode_compatible
