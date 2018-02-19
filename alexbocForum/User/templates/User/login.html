@@ -1,17 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-    {% load staticfiles %}
-    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="{% static 'User/css/style.css' %}">
+{% extends 'base.html' %}
 
-	<title>login</title>
-</head>
-<body>
-	<div class="container  text-center" id="login-container">
+{% block title %}
+    <title>sign in</title>
+{% endblock %}
+
+{% block css_js_static %}
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'User/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container  text-center" id="login-container">
 		<form class="form-horizontal row col-lg-offset-4 col-lg-4" role="form" action="." method="POST">
             {% csrf_token %}
 			<h3 class="form-title text-center"> Sign In </h3>
@@ -26,7 +25,7 @@
 			    <!-- <label for="password" class="col-sm-3 control-label">密码</label> -->
 			    <div class="col-lg-offset-1 col-lg-10">
 			    	<span class="glyphicon glyphicon-lock form-control-feedback"></span>
-			      	<input type="text" class="form-control" name="password" placeholder="password">
+			      	<input type="password" class="form-control" name="password" placeholder="password">
 			    </div>
 			</div>
 			<div class="form-group">
@@ -36,5 +35,4 @@
 		  	</div>
 		</form>
 	</div>
-</body>
-</html>
+{% endblock %}

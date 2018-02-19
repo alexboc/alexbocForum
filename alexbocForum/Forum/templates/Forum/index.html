@@ -1,10 +1,16 @@
-<h1>{{ question.question_text }}</h1>
+{% extends 'base.html' %}
 
-I am index! My name is {{ user.username }}
+{% block title %}
+    <title>index</title>
+{% endblock %}
 
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+{% block content %}
+    I am index! My name is {{ user.username }}
 
-<form action="{% url 'Forum:logout' %}" method="post">
-{% csrf_token %}
-<button type="submit" class="btn btn-default">Log out</button>
-</form>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+    <form action="{% url 'Forum:logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-default">Log out</button>
+    </form>
+{% endblock %}
