@@ -7,6 +7,9 @@ from django.urls import reverse
 from django.contrib.auth import logout as auth_logout
 from django.views.generic.base import RedirectView
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 def index(request):
     user = request.user
