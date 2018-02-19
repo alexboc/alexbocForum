@@ -4,6 +4,6 @@ from . import views
 
 app_name = 'Forum'
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
+    url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^logout$', login_required(views.LogoutRedirectView.as_view()), name='logout'),
 ]

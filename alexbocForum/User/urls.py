@@ -4,5 +4,5 @@ from . import views
 
 app_name = 'User'
 urlpatterns = [
-    url(r'^$', views.login, name='login'),
+    url(r'^$', views.LoginView.as_view(), name='login'),
 ]
