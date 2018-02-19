@@ -12,7 +12,7 @@ import os
 
 def upload_avatar(instance, filename):
     fn, ext = os.path.splitext(filename)
-    fn = instance.user_name
+    fn = instance.username
     filename = fn + ext
     pre_file_dir = os.path.join(mysettings.MEDIA_ROOT, ('avatars/%s' % (filename))).replace('\\', '/')
 
@@ -53,9 +53,9 @@ class CustomUserManager(BaseUserManager):
 class UserProfile(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=63, unique=True)
 
-    nickname = models.CharField(_('Nickname'), max_length=255, blank=False, default='')
-    sign = models.CharField(_('Personal Signature'), max_length=255, default='')
-    avatar = models.ImageField(upload_to=upload_avatar, default='avatars/default.jpg')
+    nickname = models.CharField(_('Nickname'), max_length=255, blank=True, default='')
+    sign = models.CharField(_('Personal Signature'), max_length=255, blank=True, default='')
+    avatar = models.ImageField(upload_to=upload_avatar, default='avatars/default-avatar.png')
 
     is_active=models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
@@ -66,7 +66,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     objects=CustomUserManager()
 
     def __str__(self):
-        return self.nickname or self.username
+        return self.username
 
     def get_full_name(self):
           return self.username
