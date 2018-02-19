@@ -19,11 +19,11 @@ from django.conf.urls.static import static
 from django.conf import settings
 import django
 
-from Forum.views import index
+from Forum import views
 
 
 urlpatterns = [
-    url(r'^$', index, name='index'),
+    url(r'^$', views.index, name='index'),
     url(r'^admin/', admin.site.urls),
     url(r'^User/', include('User.urls')),
     url(r'^Forum/', include('Forum.urls')),

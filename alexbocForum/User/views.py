@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.views import View
 
 def login(request):
     if request.method == 'POST':

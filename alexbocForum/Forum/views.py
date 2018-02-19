@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth import logout as auth_logout
+from django.views.generic.base import RedirectView
 from django.contrib.auth.decorators import login_required
 
 def index(request):
@@ -15,7 +16,10 @@ def index(request):
     else:
         return HttpResponseRedirect(reverse('User:login'))
 
-@login_required
-def logout(request):
-    auth_logout(request)
-    return HttpResponseRedirect(reverse('User:login'))
+
+class LogoutRedirectView(RedirectView):
+    pattern_name = 'User:login'
+
+    def get_redirect_url(self, *args, **kwargs):
+        auth_logout(self.request)
+        return super(LogoutRedirectView, self).get_redirect_url(*args, **kwargs)
