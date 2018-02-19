@@ -1,16 +1,74 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 
 {% block title %}
-    <title>index</title>
+<link rel = "Shortcut Icon" href="{% static 'img/indexicon.jpg' %}">
+<title>index</title>
+{% endblock %}
+
+{% block css_js_static %}
 {% endblock %}
 
 {% block content %}
-    I am index! My name is {{ user.username }}
+<div class="container">
+    <ol class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">2013</a></li>
+        <li class="active">十一月</li>
+    </ol>
+</div>
+<div class="container">
+    <div id="myCarousel" class="carousel slide">
+    <!-- 轮播（Carousel）指标 -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
 
-    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    <div class="media">
+    <a class="media-left" href="#">
+        <img class="media-object" src="{% static 'img/indexicon.jpg' %}"
+             alt="媒体对象" style="height:60px">
+    </a>
+    <div class="media-body">
+        <h4 class="media-heading">媒体标题</h4>
+        这是一些示例文本。这是一些示例文本。
+        这是一些示例文本。这是一些示例文本。
+        这是一些示例文本。这是一些示例文本。
+        这是一些示例文本。这是一些示例文本。
+        这是一些示例文本。这是一些示例文本。
+    </div>
+</div>
+<div class="media">
+    <a class="media-left" href="#">
+        <img class="media-object" src="{% static 'img/indexicon.jpg' %}"
+             alt="媒体对象" style="height:60px">
+    </a>
+    <div class="media-body">
+        <h4 class="media-heading">媒体标题</h4>
+        这是一些示例文本。这是一些示例文本。
+        这是一些示例文本。这是一些示例文本。
+        这是一些示例文本。这是一些示例文本。
+        这是一些示例文本。这是一些示例文本。
+        这是一些示例文本。这是一些示例文本。
+        <div class="media">
+            <a class="media-left" href="#">
+                <img class="media-object" src="{% static 'img/indexicon.jpg' %}"
+                     alt="媒体对象" style="height:60px">
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading">媒体标题</h4>
+                这是一些示例文本。这是一些示例文本。
+                这是一些示例文本。这是一些示例文本。
+                这是一些示例文本。这是一些示例文本。
+                这是一些示例文本。这是一些示例文本。
+                这是一些示例文本。这是一些示例文本。
+            </div>
+        </div>
+    </div>
+</div>
 
-    <form action="{% url 'Forum:logout' %}" method="post">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-default">Log out</button>
-    </form>
+    </div>
+</div>
 {% endblock %}
